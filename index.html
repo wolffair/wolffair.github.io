@@ -22,8 +22,27 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* Animated Background */
+/* Animated Grid Background */
 body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(255,174,0,0.1) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,174,0,0.1) 1px, transparent 1px);
+background-size:40px 40px;
+animation:gridMove 10s linear infinite;
+z-index:-2;
+}
+
+@keyframes gridMove{
+0%{background-position:0 0;}
+100%{background-position:40px 40px;}
+}
+
+/* Glow Pulse */
+body::after{
 content:"";
 position:fixed;
 top:0;
@@ -42,24 +61,38 @@ z-index:-1;
 
 .hero{
 padding:100px 20px 60px;
+animation:fadeIn 1.5s ease forwards;
+opacity:0;
+}
+
+@keyframes fadeIn{
+to{opacity:1;}
 }
 
 .logo{
 max-width:280px;
 margin-bottom:40px;
 filter:drop-shadow(0 0 30px #ffae00);
-animation:glow 2s infinite alternate;
+animation:float 3s ease-in-out infinite;
 }
 
-@keyframes glow{
-0%{filter:drop-shadow(0 0 15px #ffae00);}
-100%{filter:drop-shadow(0 0 40px #ffae00);}
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
 }
 
 h1{
 font-size:60px;
-color:#ffb700;
-text-shadow:0 0 25px #ffae00;
+background:linear-gradient(90deg,#ffae00,#ffcc33,#ffae00);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-size:200%;
+animation:gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0%;}
+100%{background-position:200%;}
 }
 
 .ticker{
@@ -72,6 +105,7 @@ color:#aaa;
 margin-top:30px;
 font-size:24px;
 color:#ffcc33;
+text-shadow:0 0 15px #ffae00;
 }
 
 .description{
@@ -137,10 +171,20 @@ color:#666;
 border-top:1px solid #111;
 margin-top:60px;
 }
+
+/* Simple Particle Effect */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-3;
+}
 </style>
 </head>
 
 <body>
+
+<canvas id="particles"></canvas>
 
 <div class="hero">
 <img src="https://i.imgur.com/nH1nElA.jpeg" class="logo" alt="WOLF FAIR Logo">
@@ -153,8 +197,8 @@ Smart. Strong. Unstoppable.
 </div>
 
 <div class="description">
-WOLF FAIR is a dynamic community-driven meme token built for momentum, vision, and fearless growth.
-This is not just another coin — it’s the rise of the Alpha.
+WOLF FAIR is a community-driven meme token built for momentum, vision, and fearless growth.
+The Alpha is rising.
 </div>
 
 <div class="buttons">
@@ -167,7 +211,7 @@ This is not just another coin — it’s the rise of the Alpha.
 <h2>Launching Soon</h2>
 <div class="coming">
 Token contract, liquidity details, and tokenomics will be announced at launch.
-Stay connected. Stay ready. The pack moves together.
+Stay connected. Stay ready.
 </div>
 </div>
 
@@ -175,6 +219,55 @@ Stay connected. Stay ready. The pack moves together.
 © 2026 WOLF FAIR. All Rights Reserved.<br>
 Cryptocurrency investments involve risk. Always do your own research.
 </footer>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*2
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="#ffae00";
+ctx.beginPath();
+for(let i=0;i<particles.length;i++){
+let p=particles[i];
+ctx.moveTo(p.x,p.y);
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+}
+ctx.fill();
+update();
+}
+
+function update(){
+for(let i=0;i<particles.length;i++){
+let p=particles[i];
+p.y+=p.d;
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+}
+}
+
+setInterval(draw,30);
+
+window.addEventListener("resize",()=>{
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+});
+</script>
 
 </body>
 </html>
