@@ -22,27 +22,8 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* Animated Grid Background */
+/* Animated Background */
 body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background:
-linear-gradient(rgba(255,174,0,0.1) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,174,0,0.1) 1px, transparent 1px);
-background-size:40px 40px;
-animation:gridMove 10s linear infinite;
-z-index:-2;
-}
-
-@keyframes gridMove{
-0%{background-position:0 0;}
-100%{background-position:40px 40px;}
-}
-
-/* Glow Pulse */
-body::after{
 content:"";
 position:fixed;
 top:0;
@@ -61,38 +42,24 @@ z-index:-1;
 
 .hero{
 padding:100px 20px 60px;
-animation:fadeIn 1.5s ease forwards;
-opacity:0;
-}
-
-@keyframes fadeIn{
-to{opacity:1;}
 }
 
 .logo{
 max-width:280px;
 margin-bottom:40px;
 filter:drop-shadow(0 0 30px #ffae00);
-animation:float 3s ease-in-out infinite;
+animation:glow 2s infinite alternate;
 }
 
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
+@keyframes glow{
+0%{filter:drop-shadow(0 0 15px #ffae00);}
+100%{filter:drop-shadow(0 0 40px #ffae00);}
 }
 
 h1{
 font-size:60px;
-background:linear-gradient(90deg,#ffae00,#ffcc33,#ffae00);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-background-size:200%;
-animation:gradientMove 3s linear infinite;
-}
-
-@keyframes gradientMove{
-0%{background-position:0%;}
-100%{background-position:200%;}
+color:#ffb700;
+text-shadow:0 0 25px #ffae00;
 }
 
 .ticker{
@@ -105,7 +72,6 @@ color:#aaa;
 margin-top:30px;
 font-size:24px;
 color:#ffcc33;
-text-shadow:0 0 15px #ffae00;
 }
 
 .description{
@@ -164,6 +130,94 @@ margin:auto;
 line-height:1.7;
 }
 
+/* ===== VISION ===== */
+.vision{
+padding:100px 20px;
+background:#050505;
+}
+
+.vision h2{
+color:#ffae00;
+font-size:36px;
+margin-bottom:25px;
+text-shadow:0 0 20px #ffae00;
+}
+
+.vision p{
+max-width:700px;
+margin:auto;
+color:#ccc;
+line-height:1.7;
+font-size:16px;
+}
+
+/* ===== ROADMAP ===== */
+.roadmap{
+padding:100px 20px;
+}
+
+.timeline{
+max-width:900px;
+margin:50px auto;
+position:relative;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:50%;
+width:2px;
+background:#ffae00;
+top:0;
+bottom:0;
+transform:translateX(-50%);
+}
+
+.road-item{
+padding:20px 40px;
+position:relative;
+width:50%;
+}
+
+.road-item.left{
+left:0;
+text-align:right;
+}
+
+.road-item.right{
+left:50%;
+}
+
+.road-item::before{
+content:"";
+position:absolute;
+top:25px;
+width:15px;
+height:15px;
+background:#ffae00;
+border-radius:50%;
+box-shadow:0 0 15px #ffae00;
+}
+
+.road-item.left::before{
+right:-8px;
+}
+
+.road-item.right::before{
+left:-8px;
+}
+
+.road-item h3{
+color:#ffcc33;
+margin-bottom:10px;
+}
+
+.road-item p{
+color:#bbb;
+font-size:14px;
+line-height:1.6;
+}
+
 footer{
 padding:60px 20px;
 font-size:12px;
@@ -171,20 +225,10 @@ color:#666;
 border-top:1px solid #111;
 margin-top:60px;
 }
-
-/* Simple Particle Effect */
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-3;
-}
 </style>
 </head>
 
 <body>
-
-<canvas id="particles"></canvas>
 
 <div class="hero">
 <img src="https://i.imgur.com/nH1nElA.jpeg" class="logo" alt="WOLF FAIR Logo">
@@ -197,8 +241,8 @@ Smart. Strong. Unstoppable.
 </div>
 
 <div class="description">
-WOLF FAIR is a community-driven meme token built for momentum, vision, and fearless growth.
-The Alpha is rising.
+WOLF FAIR is a dynamic community-driven meme token built for momentum, vision, and fearless growth.
+This is not just another coin — it’s the rise of the Alpha.
 </div>
 
 <div class="buttons">
@@ -211,7 +255,46 @@ The Alpha is rising.
 <h2>Launching Soon</h2>
 <div class="coming">
 Token contract, liquidity details, and tokenomics will be announced at launch.
-Stay connected. Stay ready.
+Stay connected. Stay ready. The pack moves together.
+</div>
+</div>
+
+<!-- ===== VISION ===== -->
+<div class="vision">
+<h2>Our Vision</h2>
+<p>
+WOLFFAIR aims to build a powerful and united community-driven ecosystem.
+More than a meme, $WOLF represents leadership, strength, and long-term dominance in the crypto space.
+We start with momentum — we grow with utility.
+</p>
+</div>
+
+<!-- ===== ROADMAP ===== -->
+<div class="roadmap">
+<h2 style="color:#ffae00;text-shadow:0 0 20px #ffae00;">Roadmap</h2>
+
+<div class="timeline">
+
+<div class="road-item left">
+<h3>Phase 1 – Pack Formation</h3>
+<p>Website launch, social growth, branding expansion, and viral awareness campaign.</p>
+</div>
+
+<div class="road-item right">
+<h3>Phase 2 – Token Launch</h3>
+<p>Smart contract deployment, liquidity lock, DEX listing, and official launch event.</p>
+</div>
+
+<div class="road-item left">
+<h3>Phase 3 – Expansion</h3>
+<p>Influencer collaborations, trending campaigns, and strategic partnerships.</p>
+</div>
+
+<div class="road-item right">
+<h3>Phase 4 – Ecosystem Growth</h3>
+<p>Utility development, NFT integration, staking mechanics, and ecosystem scaling.</p>
+</div>
+
 </div>
 </div>
 
@@ -219,55 +302,6 @@ Stay connected. Stay ready.
 © 2026 WOLF FAIR. All Rights Reserved.<br>
 Cryptocurrency investments involve risk. Always do your own research.
 </footer>
-
-<script>
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-d:Math.random()*2
-});
-}
-
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="#ffae00";
-ctx.beginPath();
-for(let i=0;i<particles.length;i++){
-let p=particles[i];
-ctx.moveTo(p.x,p.y);
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
-}
-ctx.fill();
-update();
-}
-
-function update(){
-for(let i=0;i<particles.length;i++){
-let p=particles[i];
-p.y+=p.d;
-if(p.y>canvas.height){
-p.y=0;
-p.x=Math.random()*canvas.width;
-}
-}
-}
-
-setInterval(draw,30);
-
-window.addEventListener("resize",()=>{
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-});
-</script>
 
 </body>
 </html>
