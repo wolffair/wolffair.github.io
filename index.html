@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WOLF FAIR ($WOLF) | The Alpha Awakens</title>
+<title>WOLF FAIR ($WOLF)</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -18,152 +18,108 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* CANVAS CYBER RAIN */
+/* ==== GRID BACKGROUND ==== */
+.grid-bg{
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(255,174,0,0.08) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,174,0,0.08) 1px, transparent 1px);
+background-size:40px 40px;
+z-index:-2;
+animation:gridMove 20s linear infinite;
+}
+
+@keyframes gridMove{
+0%{background-position:0 0,0 0;}
+100%{background-position:0 40px,40px 0;}
+}
+
+/* ==== PARTICLE CANVAS ==== */
 canvas{
 position:fixed;
 top:0;
 left:0;
-z-index:-2;
-}
-
-/* Glow radial */
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background:radial-gradient(circle at center, rgba(255,174,0,0.08), transparent 60%);
 z-index:-1;
 }
 
 /* HERO */
-.hero{padding:100px 20px 60px;}
-
-.logo{
-max-width:260px;
-margin-bottom:30px;
-filter:drop-shadow(0 0 25px #ffae00);
-animation:float 3s ease-in-out infinite;
-}
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
+.hero{
+padding:120px 20px 80px;
 }
 
 h1{
-font-size:60px;
+font-size:56px;
 color:#ffb700;
-text-shadow:0 0 25px #ffae00;
+text-shadow:0 0 20px rgba(255,174,0,0.6);
 }
 
-.ticker{font-size:22px;margin-top:10px;color:#aaa;}
-.tagline{margin-top:30px;font-size:24px;color:#ffcc33;}
+.ticker{
+margin-top:10px;
+color:#aaa;
+}
+
+.tagline{
+margin-top:30px;
+font-size:20px;
+color:#ffcc33;
+letter-spacing:2px;
+}
 
 .description{
 margin:40px auto;
-max-width:700px;
-font-size:17px;
-color:#ccc;
-line-height:1.7;
+max-width:650px;
+font-size:15px;
+color:#bbb;
+line-height:1.8;
 }
 
-.buttons{margin-top:50px;}
+.buttons{
+margin-top:50px;
+}
 
 .btn{
 display:inline-block;
-padding:16px 40px;
+padding:15px 40px;
 margin:15px;
-text-decoration:none;
 border-radius:50px;
+text-decoration:none;
 font-weight:700;
 transition:0.3s;
 }
 
-.telegram{background:#ffae00;color:#000;}
-.twitter{border:2px solid #ffae00;color:#ffae00;}
+.telegram{
+background:#ffae00;
+color:#000;
+}
+
+.twitter{
+border:2px solid #ffae00;
+color:#ffae00;
+}
 
 .btn:hover{
-transform:scale(1.1);
-box-shadow:0 0 30px #ffae00;
+transform:translateY(-4px);
+box-shadow:0 0 20px rgba(255,174,0,0.6);
 }
 
-/* VISION */
-.vision{
+/* SECTION */
+.section{
 padding:100px 20px;
-background:#050505;
-opacity:0;
-transform:translateY(40px);
-transition:all 1s ease;
-}
-.vision.show{
-opacity:1;
-transform:translateY(0);
 }
 
-/* ROADMAP */
-.roadmap{padding:100px 20px;}
-
-.timeline{
-max-width:900px;
-margin:50px auto;
-position:relative;
+.section h2{
+color:#ffae00;
+margin-bottom:25px;
 }
 
-.timeline::before{
-content:"";
-position:absolute;
-left:50%;
-width:3px;
-background:#ffae00;
-top:0;
-bottom:0;
-transform:translateX(-50%);
-box-shadow:0 0 20px #ffae00;
+.section p{
+max-width:700px;
+margin:auto;
+color:#bbb;
+line-height:1.7;
 }
-
-.road-item{
-padding:20px 40px;
-position:relative;
-width:50%;
-opacity:0;
-transition:all 1s ease;
-}
-
-.road-item.left{
-left:0;
-text-align:right;
-transform:translateX(-60px);
-}
-
-.road-item.right{
-left:50%;
-transform:translateX(60px);
-}
-
-.road-item.show{
-opacity:1;
-transform:translateX(0);
-}
-
-.road-item::before{
-content:"";
-position:absolute;
-top:25px;
-width:16px;
-height:16px;
-background:#ffae00;
-border-radius:50%;
-box-shadow:0 0 20px #ffae00;
-animation:glowDot 2s infinite alternate;
-}
-
-@keyframes glowDot{
-0%{box-shadow:0 0 10px #ffae00;}
-100%{box-shadow:0 0 25px #ffae00;}
-}
-
-.road-item.left::before{right:-9px;}
-.road-item.right::before{left:-9px;}
 
 footer{
 padding:60px 20px;
@@ -177,55 +133,32 @@ margin-top:60px;
 
 <body>
 
-<canvas id="matrix"></canvas>
+<div class="grid-bg"></div>
+<canvas id="particles"></canvas>
 
 <div class="hero">
-<img src="https://i.imgur.com/nH1nElA.jpeg" class="logo">
 <h1>WOLF FAIR</h1>
 <div class="ticker">$WOLF</div>
-<div class="tagline">Smart. Strong. Unstoppable.</div>
+
+<div class="tagline">Strategic. Community. Momentum.</div>
+
 <div class="description">
-WOLF FAIR is a community-driven meme token built for momentum and fearless expansion.
-The Alpha is rising.
+WOLF FAIR is a community-driven digital asset focused on structured growth,
+transparent execution, and long-term positioning in the crypto ecosystem.
 </div>
+
 <div class="buttons">
-<a href="#" class="btn telegram">Join Telegram</a>
-<a href="#" class="btn twitter">Follow on X</a>
+<a href="https://t.me/wolftwofair" class="btn telegram">Join Telegram</a>
+<a href="https://x.com/wolftwofair" class="btn twitter">Follow on X</a>
 </div>
 </div>
 
-<div class="vision" id="vision">
-<h2 style="color:#ffae00;text-shadow:0 0 20px #ffae00;">Our Vision</h2>
+<div class="section">
+<h2>Launching Soon</h2>
 <p>
-To build a dominant and unified crypto pack. WOLFFAIR is more than hype —
-it is long-term positioning and ecosystem evolution.
+Token contract, liquidity structure, and tokenomics breakdown
+will be released transparently during official launch.
 </p>
-</div>
-
-<div class="roadmap">
-<h2 style="color:#ffae00;text-shadow:0 0 20px #ffae00;">Roadmap</h2>
-
-<div class="timeline">
-<div class="road-item left">
-<h3>Phase 1 – Pack Formation</h3>
-<p>Branding, website launch, and viral community growth.</p>
-</div>
-
-<div class="road-item right">
-<h3>Phase 2 – Token Launch</h3>
-<p>Smart contract deployment, liquidity lock, DEX listing.</p>
-</div>
-
-<div class="road-item left">
-<h3>Phase 3 – Expansion</h3>
-<p>Influencer campaigns and trending strategies.</p>
-</div>
-
-<div class="road-item right">
-<h3>Phase 4 – Ecosystem Growth</h3>
-<p>Utility, NFT integration, staking mechanics.</p>
-</div>
-</div>
 </div>
 
 <footer>
@@ -233,57 +166,45 @@ it is long-term positioning and ecosystem evolution.
 </footer>
 
 <script>
-// SCROLL REVEAL
-function revealOnScroll(){
-const vision=document.getElementById("vision");
-const items=document.querySelectorAll(".road-item");
-const trigger=window.innerHeight*0.85;
-
-if(vision.getBoundingClientRect().top < trigger){
-vision.classList.add("show");
-}
-
-items.forEach(item=>{
-if(item.getBoundingClientRect().top < trigger){
-item.classList.add("show");
-}
-});
-}
-window.addEventListener("scroll",revealOnScroll);
-
-// CYBER RAIN
-const canvas=document.getElementById("matrix");
+/* ===== PARTICLE GLOW ===== */
+const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
-const letters="01WOLFCRYPTOFAIR";
-const fontSize=14;
-const columns=canvas.width/fontSize;
-const drops=[];
+let particles=[];
 
-for(let x=0;x<columns;x++) drops[x]=1;
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+radius:Math.random()*2+1,
+speedY:Math.random()*0.6+0.2,
+alpha:Math.random()
+});
+}
 
 function draw(){
-ctx.fillStyle="rgba(0,0,0,0.05)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.clearRect(0,0,canvas.width,canvas.height);
 
-ctx.fillStyle="#ffae00";
-ctx.font=fontSize+"px monospace";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+ctx.fillStyle="rgba(255,174,0,"+p.alpha+")";
+ctx.fill();
 
-for(let i=0;i<drops.length;i++){
-const text=letters.charAt(Math.floor(Math.random()*letters.length));
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+p.y+=p.speedY;
 
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
-drops[i]=0;
-
-drops[i]++;
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
 }
+});
+requestAnimationFrame(draw);
 }
 
-setInterval(draw,33);
+draw();
 
 window.addEventListener("resize",()=>{
 canvas.width=window.innerWidth;
