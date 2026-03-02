@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WOLF FAIR ($WOLF)</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-
 body{
 font-family:'Orbitron',sans-serif;
 background:#000;
@@ -18,7 +16,7 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* ==== GRID BACKGROUND ==== */
+/* GRID BACKGROUND */
 .grid-bg{
 position:fixed;
 width:100%;
@@ -30,13 +28,11 @@ background-size:40px 40px;
 z-index:-2;
 animation:gridMove 20s linear infinite;
 }
-
 @keyframes gridMove{
 0%{background-position:0 0,0 0;}
 100%{background-position:0 40px,40px 0;}
 }
 
-/* ==== PARTICLE CANVAS ==== */
 canvas{
 position:fixed;
 top:0;
@@ -45,28 +41,10 @@ z-index:-1;
 }
 
 /* HERO */
-.hero{
-padding:120px 20px 80px;
-}
-
-h1{
-font-size:56px;
-color:#ffb700;
-text-shadow:0 0 20px rgba(255,174,0,0.6);
-}
-
-.ticker{
-margin-top:10px;
-color:#aaa;
-}
-
-.tagline{
-margin-top:30px;
-font-size:20px;
-color:#ffcc33;
-letter-spacing:2px;
-}
-
+.hero{padding:120px 20px 80px;}
+h1{font-size:56px;color:#ffb700;text-shadow:0 0 20px rgba(255,174,0,0.6);}
+.ticker{margin-top:10px;color:#aaa;}
+.tagline{margin-top:30px;font-size:20px;color:#ffcc33;letter-spacing:2px;}
 .description{
 margin:40px auto;
 max-width:650px;
@@ -74,11 +52,7 @@ font-size:15px;
 color:#bbb;
 line-height:1.8;
 }
-
-.buttons{
-margin-top:50px;
-}
-
+.buttons{margin-top:50px;}
 .btn{
 display:inline-block;
 padding:15px 40px;
@@ -88,39 +62,66 @@ text-decoration:none;
 font-weight:700;
 transition:0.3s;
 }
-
-.telegram{
-background:#ffae00;
-color:#000;
-}
-
-.twitter{
-border:2px solid #ffae00;
-color:#ffae00;
-}
-
-.btn:hover{
-transform:translateY(-4px);
-box-shadow:0 0 20px rgba(255,174,0,0.6);
-}
+.telegram{background:#ffae00;color:#000;}
+.twitter{border:2px solid #ffae00;color:#ffae00;}
+.btn:hover{transform:translateY(-4px);box-shadow:0 0 20px rgba(255,174,0,0.6);}
 
 /* SECTION */
-.section{
-padding:100px 20px;
-}
+.section{padding:100px 20px;}
+.section h2{color:#ffae00;margin-bottom:30px;}
+.section p{max-width:750px;margin:auto;color:#bbb;line-height:1.7;}
 
-.section h2{
-color:#ffae00;
+/* TOKENOMICS */
+.tokenomics{
+max-width:700px;
+margin:40px auto;
+text-align:left;
+}
+.token-item{
 margin-bottom:25px;
 }
-
-.section p{
-max-width:700px;
-margin:auto;
-color:#bbb;
-line-height:1.7;
+.token-item span{
+display:block;
+margin-bottom:8px;
+color:#ffcc33;
+}
+.bar{
+background:#111;
+border-radius:20px;
+overflow:hidden;
+height:18px;
+}
+.fill{
+height:100%;
+background:#ffae00;
+width:0%;
+transition:1.5s ease;
 }
 
+/* ROADMAP */
+.roadmap-list{
+max-width:700px;
+margin:40px auto;
+text-align:left;
+}
+.roadmap-list li{
+margin-bottom:15px;
+color:#bbb;
+}
+
+/* FAQ */
+.faq{
+max-width:750px;
+margin:40px auto;
+text-align:left;
+}
+.faq-item{
+margin-bottom:25px;
+}
+.faq-item h4{
+color:#ffcc33;
+margin-bottom:8px;
+}
 footer{
 padding:60px 20px;
 font-size:12px;
@@ -139,26 +140,74 @@ margin-top:60px;
 <div class="hero">
 <h1>WOLF FAIR</h1>
 <div class="ticker">$WOLF</div>
-
 <div class="tagline">Strategic. Community. Momentum.</div>
-
 <div class="description">
-WOLF FAIR is a community-driven digital asset focused on structured growth,
-transparent execution, and long-term positioning in the crypto ecosystem.
+WOLF FAIR is a community-driven digital asset designed for structured growth,
+transparent execution, and long-term ecosystem development.
 </div>
-
 <div class="buttons">
-<a href="https://t.me/wolftwofair" class="btn telegram">Join Telegram</a>
-<a href="https://x.com/wolftwofair" class="btn twitter">Follow on X</a>
+<a href="#" class="btn telegram">Join Telegram</a>
+<a href="#" class="btn twitter">Follow on X</a>
 </div>
 </div>
 
 <div class="section">
-<h2>Launching Soon</h2>
-<p>
-Token contract, liquidity structure, and tokenomics breakdown
-will be released transparently during official launch.
-</p>
+<h2>Tokenomics</h2>
+<div class="tokenomics">
+
+<div class="token-item">
+<span>40% Community & Liquidity</span>
+<div class="bar"><div class="fill" style="width:40%"></div></div>
+</div>
+
+<div class="token-item">
+<span>25% Marketing & Growth</span>
+<div class="bar"><div class="fill" style="width:25%"></div></div>
+</div>
+
+<div class="token-item">
+<span>20% Ecosystem Development</span>
+<div class="bar"><div class="fill" style="width:20%"></div></div>
+</div>
+
+<div class="token-item">
+<span>15% Team & Reserve</span>
+<div class="bar"><div class="fill" style="width:15%"></div></div>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2>Roadmap</h2>
+<ul class="roadmap-list">
+<li>Phase 1 – Branding & Community Foundation</li>
+<li>Phase 2 – Smart Contract Deployment & Liquidity Lock</li>
+<li>Phase 3 – DEX Listing & Marketing Expansion</li>
+<li>Phase 4 – Utility Integration & Ecosystem Scaling</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>FAQ</h2>
+<div class="faq">
+
+<div class="faq-item">
+<h4>Is liquidity locked?</h4>
+<p>Liquidity lock details will be publicly verifiable upon launch.</p>
+</div>
+
+<div class="faq-item">
+<h4>Is this a long-term project?</h4>
+<p>The roadmap and token allocation structure are designed for sustainable growth.</p>
+</div>
+
+<div class="faq-item">
+<h4>Where can I read the whitepaper?</h4>
+<p>Whitepaper PDF will be released during official launch announcement.</p>
+</div>
+
+</div>
 </div>
 
 <footer>
@@ -166,50 +215,35 @@ will be released transparently during official launch.
 </footer>
 
 <script>
-/* ===== PARTICLE GLOW ===== */
+/* PARTICLES */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
-
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let particles=[];
-
-for(let i=0;i<80;i++){
+for(let i=0;i<60;i++){
 particles.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
 radius:Math.random()*2+1,
-speedY:Math.random()*0.6+0.2,
+speedY:Math.random()*0.5+0.2,
 alpha:Math.random()
 });
 }
-
 function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
-
 particles.forEach(p=>{
 ctx.beginPath();
 ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
 ctx.fillStyle="rgba(255,174,0,"+p.alpha+")";
 ctx.fill();
-
 p.y+=p.speedY;
-
-if(p.y>canvas.height){
-p.y=0;
-p.x=Math.random()*canvas.width;
-}
+if(p.y>canvas.height){p.y=0;p.x=Math.random()*canvas.width;}
 });
 requestAnimationFrame(draw);
 }
-
 draw();
-
-window.addEventListener("resize",()=>{
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-});
 </script>
 
 </body>
