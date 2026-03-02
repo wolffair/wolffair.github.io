@@ -41,33 +41,72 @@ z-index:-1;
 }
 
 /* HERO */
-.hero{padding:120px 20px 80px;}
-h1{font-size:56px;color:#ffb700;text-shadow:0 0 20px rgba(255,174,0,0.6);}
+.hero{padding:100px 20px 60px;}
+
+.logo{
+width:140px;
+margin-bottom:25px;
+filter:drop-shadow(0 0 15px rgba(255,174,0,0.6));
+animation:logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow{
+0%{filter:drop-shadow(0 0 10px rgba(255,174,0,0.4));}
+100%{filter:drop-shadow(0 0 25px rgba(255,174,0,0.9));}
+}
+
+h1{
+font-size:52px;
+color:#ffb700;
+text-shadow:0 0 20px rgba(255,174,0,0.6);
+}
+
 .ticker{margin-top:10px;color:#aaa;}
-.tagline{margin-top:30px;font-size:20px;color:#ffcc33;letter-spacing:2px;}
+
+.tagline{
+margin-top:25px;
+font-size:18px;
+color:#ffcc33;
+letter-spacing:2px;
+}
+
 .description{
-margin:40px auto;
+margin:35px auto;
 max-width:650px;
 font-size:15px;
 color:#bbb;
 line-height:1.8;
 }
-.buttons{margin-top:50px;}
+
+.buttons{margin-top:40px;}
+
 .btn{
 display:inline-block;
-padding:15px 40px;
+padding:14px 38px;
 margin:15px;
 border-radius:50px;
 text-decoration:none;
 font-weight:700;
 transition:0.3s;
 }
-.telegram{background:#ffae00;color:#000;}
-.twitter{border:2px solid #ffae00;color:#ffae00;}
-.btn:hover{transform:translateY(-4px);box-shadow:0 0 20px rgba(255,174,0,0.6);}
+
+.telegram{
+background:#ffae00;
+color:#000;
+}
+
+.twitter{
+border:2px solid #ffae00;
+color:#ffae00;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 0 20px rgba(255,174,0,0.6);
+}
 
 /* SECTION */
-.section{padding:100px 20px;}
+.section{padding:90px 20px;}
 .section h2{color:#ffae00;margin-bottom:30px;}
 .section p{max-width:750px;margin:auto;color:#bbb;line-height:1.7;}
 
@@ -77,9 +116,7 @@ max-width:700px;
 margin:40px auto;
 text-align:left;
 }
-.token-item{
-margin-bottom:25px;
-}
+.token-item{margin-bottom:25px;}
 .token-item span{
 display:block;
 margin-bottom:8px;
@@ -94,8 +131,6 @@ height:18px;
 .fill{
 height:100%;
 background:#ffae00;
-width:0%;
-transition:1.5s ease;
 }
 
 /* ROADMAP */
@@ -115,13 +150,12 @@ max-width:750px;
 margin:40px auto;
 text-align:left;
 }
-.faq-item{
-margin-bottom:25px;
-}
+.faq-item{margin-bottom:25px;}
 .faq-item h4{
 color:#ffcc33;
 margin-bottom:8px;
 }
+
 footer{
 padding:60px 20px;
 font-size:12px;
@@ -138,17 +172,24 @@ margin-top:60px;
 <canvas id="particles"></canvas>
 
 <div class="hero">
+
+<img src="https://i.imgur.com/nH1nElA.jpeg" class="logo" alt="WOLF FAIR Logo">
+
 <h1>WOLF FAIR</h1>
 <div class="ticker">$WOLF</div>
+
 <div class="tagline">Strategic. Community. Momentum.</div>
+
 <div class="description">
 WOLF FAIR is a community-driven digital asset designed for structured growth,
 transparent execution, and long-term ecosystem development.
 </div>
+
 <div class="buttons">
-<a href="#" class="btn telegram">Join Telegram</a>
-<a href="#" class="btn twitter">Follow on X</a>
+<a href="https://t.me/+7Lpf7AuRg98wZmZl" target="_blank" class="btn telegram">Join Telegram</a>
+<a href="https://x.com/wolftwofair" target="_blank" class="btn twitter">Follow on X</a>
 </div>
+
 </div>
 
 <div class="section">
@@ -199,12 +240,12 @@ transparent execution, and long-term ecosystem development.
 
 <div class="faq-item">
 <h4>Is this a long-term project?</h4>
-<p>The roadmap and token allocation structure are designed for sustainable growth.</p>
+<p>The roadmap and allocation structure are designed for sustainable growth.</p>
 </div>
 
 <div class="faq-item">
-<h4>Where can I read the whitepaper?</h4>
-<p>Whitepaper PDF will be released during official launch announcement.</p>
+<h4>Where is the whitepaper?</h4>
+<p>Whitepaper will be released alongside the official launch announcement.</p>
 </div>
 
 </div>
@@ -215,7 +256,6 @@ transparent execution, and long-term ecosystem development.
 </footer>
 
 <script>
-/* PARTICLES */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
